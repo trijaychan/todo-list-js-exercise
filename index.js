@@ -1,25 +1,23 @@
-function newTask(title, description) {
-  const task = {
-    title,
-    description,
-    complete: false,
+class Task {
+  constructor(title, description) {
+    this.title = title;
+    this.description = description;
+    this.complete = false;
+  }
 
-    markCompleted: function() {
-      this.complete = true;
-    },
+  markCompleted() {
+    this.complete = true;
+  }
 
-    logState: function() {
-      console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
-    }
-  };
-
-  return task;
+  logState() {
+    console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
+  }
 }
 
 // DRIVER CODE BELOW
 
-const task1 = newTask("Clean Cat Litter", "Clean out litter box"); // task 0
-const task2 = newTask("Do Laundry", "bruh"); // task 1
+const task1 = new Task("Clean Cat Litter", "Clean out litter box"); // task 0
+const task2 = new Task("Do Laundry", "bruh"); // task 1
 const tasks = [task1, task2];
 
 task1.logState();
